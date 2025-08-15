@@ -1,3 +1,5 @@
+# DO NOT USE STILL IN PRODUCTION
+
 # rex-notes
 - discord : https://discord.gg/YUV7ebzkqs
 - youtube : https://www.youtube.com/@rexshack/videos
