@@ -10,7 +10,6 @@ RSGCore.Functions.CreateUseableItem(Config.NoteBookItem, function(source, item)
     local firstname = Player.PlayerData.charinfo.firstname
     local lastname = Player.PlayerData.charinfo.lastname
     TriggerClientEvent('rex-notes:client:createnote', src, Config.NoteBookItem, Config.NoteProp)
-   
 end)
 
 ---------------------------------------------
@@ -21,7 +20,6 @@ RSGCore.Functions.CreateUseableItem(Config.NoteItem, function(source, item)
     local Player = RSGCore.Functions.GetPlayer(src)
     local firstname = Player.PlayerData.charinfo.firstname
     local lastname = Player.PlayerData.charinfo.lastname
-
     if item.info and item.info.noteid then
         TriggerClientEvent('rex-notes:client:readcopiednote', src, item.info.noteid, item.info.title, item.info.content, item.info.imageUrl)
        
@@ -53,9 +51,7 @@ RSGCore.Functions.CreateCallback('rex-notes:server:isAdmin', function(source, cb
     if Player then
         -- Check if player has admin permissions
         -- You can modify this condition based on your permission system
-        local isAdmin = RSGCore.Functions.HasPermission(src, 'admin') or 
-                       Player.PlayerData.job.name == 'admin' or 
-                       Player.PlayerData.group == 'admin'
+        local isAdmin = RSGCore.Functions.HasPermission(src, 'admin') or Player.PlayerData.job.name == 'admin' or Player.PlayerData.group == 'admin'
         cb(isAdmin)
     else
         cb(false)
@@ -185,9 +181,7 @@ AddEventHandler('rex-notes:server:distroynote', function(propid)
     local Player = RSGCore.Functions.GetPlayer(src)
     
     -- Check if player has admin permissions
-    local isAdmin = RSGCore.Functions.HasPermission(src, 'admin') or 
-                   Player.PlayerData.job.name == 'admin' or 
-                   Player.PlayerData.group == 'admin'
+    local isAdmin = RSGCore.Functions.HasPermission(src, 'admin') or Player.PlayerData.job.name == 'admin' or Player.PlayerData.group == 'admin'
     
     if not isAdmin then
         TriggerClientEvent('ox_lib:notify', src, {
@@ -210,10 +204,7 @@ AddEventHandler('rex-notes:server:distroynote', function(propid)
     TriggerEvent('rex-notes:server:updateProps')
     
     -- Log the admin action
-    print(string.format("[REX-NOTES] Admin %s (%s) destroyed note with ID: %s", 
-          Player.PlayerData.charinfo.firstname .. " " .. Player.PlayerData.charinfo.lastname,
-          Player.PlayerData.citizenid,
-          propid))
+    print(string.format("[REX-NOTES] Admin %s (%s) destroyed note with ID: %s", Player.PlayerData.charinfo.firstname .. " " .. Player.PlayerData.charinfo.lastname, Player.PlayerData.citizenid, propid))
 end)
 
 RegisterServerEvent('rex-notes:server:editnote')
