@@ -3,9 +3,8 @@ rdr3_warning 'I acknowledge that this is a prerelease build of RedM, and I am aw
 game 'rdr3'
 
 description 'rex-notes'
-version '1.0.2'
+version '2.0.0'
 ui_page 'html/index.html'
-
 
 shared_scripts {
     '@ox_lib/init.lua',
@@ -28,13 +27,6 @@ server_scripts {
 dependencies {
     'rsg-core',
     'ox_lib',
-}
-
-escrow_ignore {
-    'locales',
-    'config.lua',
-    'README.md',
-    'rex-notes.sql'
 }
 
 files {
