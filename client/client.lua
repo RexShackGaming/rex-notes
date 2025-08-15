@@ -5,7 +5,6 @@ local fx_group = "scr_dm_ftb"
 local fx_name = "scr_mp_chest_spawn_smoke"
 local fx_scale = 1.3
 
-
 function DrawText3D(x, y, z, text)
     local onScreen, _x, _y = GetScreenCoordFromWorldCoord(x, y, z)
     if onScreen then
@@ -201,26 +200,26 @@ RegisterNetEvent('rex-notes:client:opennotes', function(noteid, entity)
         
         -- Only add destroy option if player is admin
         if isAdmin then
-			table.insert(menuOptions, {
-				title = 'Edit Poster',
-				icon = 'fa-solid fa-pen-to-square',
-				event = 'rex-notes:client:editnote',
-				args = {
-						noteid = noteid
-				},
-				arrow = true
-			})
+            table.insert(menuOptions, {
+                title = 'Edit Poster',
+                icon = 'fa-solid fa-pen-to-square',
+                event = 'rex-notes:client:editnote',
+                args = {
+                        noteid = noteid
+                },
+                arrow = true
+            })
 
-			table.insert(menuOptions, {
-				title = 'Destroy Poster',
-				icon = 'fa-solid fa-fire',
-				event = 'rex-notes:client:distroynote',
-				args = {
-					noteid = noteid,
-					entity = entity,
-				}
-		})
-	end
+            table.insert(menuOptions, {
+                title = 'Destroy Poster',
+                icon = 'fa-solid fa-fire',
+                event = 'rex-notes:client:distroynote',
+                args = {
+                    noteid = noteid,
+                    entity = entity,
+                }
+        })
+    end
         
         lib.registerContext({
             id = 'note_menu',
@@ -456,7 +455,6 @@ end)
 
 function CanPlacePropHere(pos)
     local canPlace = true
-
     for i = 1, #Config.PlayerProps do
         local checkprops = vector3(Config.PlayerProps[i].x, Config.PlayerProps[i].y, Config.PlayerProps[i].z)
         local dist = #(pos - checkprops)
@@ -472,7 +470,6 @@ end
 ---------------------------------------------
 AddEventHandler('onResourceStop', function(resource)
     if resource ~= GetCurrentResourceName() then return end
-
     for i = 1, #SpawnedProps do
         local props = SpawnedProps[i].obj
         SetEntityAsMissionEntity(props, false)
