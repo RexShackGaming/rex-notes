@@ -4,14 +4,12 @@ game 'rdr3'
 
 description 'rex-notes'
 version '2.0.0'
+
 ui_page 'html/index.html'
 
 shared_scripts {
     '@ox_lib/init.lua',
-    '@rsg-core/shared/locale.lua',
-    'locales/en.lua',
-    'locales/*.lua',
-    'config.lua',
+    'config.lua'
 }
 
 client_scripts {
@@ -30,7 +28,8 @@ dependencies {
 }
 
 files {
-    'html/index.html'
+    'html/index.html',
+    'locales/*.json'
 }
 
 lua54 'yes'
